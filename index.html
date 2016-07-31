@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+  </head>
+<body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  document.addEventListener('DOMContentLoaded', function() {
+    var messages = document.getElementById('messages');
+    var messageForm = document.getElementById('messageForm');
+    var messageBox = document.getElementById('messageBox');
+    messageForm.addEventListener('submit', function(e) {
+      socket.emit('chat message', messageBox.value)
+      messageBox.value = '';
+      e.preventDefault();
+      return false;
+    });
+
+    socket.on('chat message', function(m) {
+      messages.innerHTML += '<li>' + m + '</li>';
+    });
+  });
+</script>
+
+<ul id="messages"></ul>
+<form id="messageForm" action="">
+  <input name="m" id="messageBox" autocomplete="off" />
+</form>
+
+</body>
+</html>
