@@ -2,9 +2,38 @@
 <html>
   <head>
     <style>
+      ul#messages {
+        display: block;
+        float: right;
+        width: 70%;
+        color: red;
+        background-color: gray;
+      }
+      ul#users {
+        display: block;
+        float: right;
+        width: 30%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      ul#users li:nth-child(odd) { background: #eee; }
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
+      #messages li:last-child { background: #eee; }
+
+      .messageBox {
+        position: absolute;
+        display: block;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+      }
+
+      .messageBox input {
+        width: 100%;
+      }
     </style>
   </head>
 <body>
@@ -12,6 +41,7 @@
 <script>
   var socket = io();
   document.addEventListener('DOMContentLoaded', function() {
+    var users = document.getElementById('users');
     var messages = document.getElementById('messages');
     var messageForm = document.getElementById('messageForm');
     var messageBox = document.getElementById('messageBox');
@@ -25,13 +55,26 @@
     socket.on('chat message', function(m) {
       messages.innerHTML += '<li>' + m + '</li>';
     });
+
+    socket.on('refresh users', function(userList) {
+      users.innerHTML = '';
+      for (var i=0;i<userList.length;i++) {
+        users.innerHTML += '<li>' + userList[i] + '</li>';
+      }
+      users.innerHTML += '<li>Total users connected: ' + userList.length + '</li>';
+    })
   });
 </script>
 
+<div>
 <ul id="messages"></ul>
+<ul id="users"></ul>
+</div>
+<div class="messageBox">
 <form id="messageForm" action="">
   <input name="m" id="messageBox" autocomplete="off" />
 </form>
+</div>
 
 </body>
 </html>

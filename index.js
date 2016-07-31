@@ -7,6 +7,7 @@ app.get('/', function(req, res) {
 });
 
 io.on('connection', function(socket) {
+  io.emit('refresh users', getUsers());
   socket.broadcast.emit('chat message', 'a user has connected');
   socket.on('disconnect', function() {
     io.emit('chat message', 'a user has disconnected');
@@ -19,4 +20,12 @@ io.on('connection', function(socket) {
 
 http.listen(3000, function() {
   console.log('listening on *:3000');
-})
+});
+
+function getUsers() {
+    var users = [];
+    for (var prop in io.sockets.connected) {
+      users.push(prop);
+    }
+    return users;
+}
