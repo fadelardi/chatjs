@@ -58,7 +58,7 @@
     socket.on('refresh users', function(users) {
       usersList.innerHTML = '';
       for (var i=0;i<users.length;i++) {
-        usersList.innerHTML += '<li>' + users[i] + '</li>';
+        usersList.innerHTML += '<li>' + users[i].name + '</li>';
       }
       usersList.innerHTML += '<li>Total users connected: ' + users.length + '</li>';
     })
