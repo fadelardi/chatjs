@@ -1,0 +1,30 @@
+ul#messages {
+  display: block;
+  float: right;
+  width: 70%;
+  color: red;
+  background-color: gray;
+}
+ul#users {
+  display: block;
+  float: right;
+  width: 30%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#messages { list-style-type: none; margin: 0; padding: 0; }
+#messages li { padding: 5px 10px; }
+
+.messageBox {
+  position: absolute;
+  display: block;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.messageBox input {
+  width: 100%;
+}

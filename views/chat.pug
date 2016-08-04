@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    link(rel="stylesheet", type="text/css", href="/static/style.css")
+  body
+    script(src="/socket.io/socket.io.js")
+    script(src="/static/chat-client.js")
+    div
+      ul#users
+      ul#messages
+    div.messageBox
+    form#messageForm(action="")
+      input#messageBox(name="m", autocomplete="off")
+

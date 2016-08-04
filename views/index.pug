@@ -1,0 +1,9 @@
+doctype html
+html
+head
+  link(rel="stylesheet", type="text/css", href="/static/style.css")
+body
+  form(action="/chat", method="post")
+    p Choose an username and start chatting.
+    input(type="text" name="username")
+    input(type="submit", name="submit", value="Start")
