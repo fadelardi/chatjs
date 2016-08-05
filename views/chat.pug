@@ -1,14 +1,18 @@
 doctype html
 html
   head
-    link(rel="stylesheet", type="text/css", href="/static/style.css")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u",crossorigin="anonymous")
   body
     script(src="/socket.io/socket.io.js")
-    script(src="/static/chat-client.js")
-    div
-      ul#users
-      ul#messages
-    div.messageBox
-    form#messageForm(action="")
-      input#messageBox(name="m", autocomplete="off")
+    div.container-fluid
+      div.row
+        div#messages.col-md-9
+        div.col-md-3
+          ul#users
+      div.row
+        div
+          form#messageForm(action="")
+            p
+              input#messageBox.form-control(name="m", autocomplete="off")
 
+    script(src="/static/chat-client.js")

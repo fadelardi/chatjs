@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   socket.on('chat message', function(m) {
-    messages.innerHTML += '<li>' + m + '</li>';
+    messages.innerHTML += '<p>' + m + '</p>';
   });
 
   socket.on('refresh users', function(users) {

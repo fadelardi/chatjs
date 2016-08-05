@@ -4,14 +4,13 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var bodyParser = require('body-parser');
 
-
 app.use(bodyParser.urlencoded({ extended: false }))
 app.set('views', './views');
 app.set('view engine', 'pug');
 app.use('/static', express.static(__dirname + '/static'));
 
 var userList = {
-  users : [], 
+  users : [],
   add: function(userObj) {
     this.users.push(userObj);
   },
@@ -55,9 +54,9 @@ app.post('/chat', function(req, res, next) {
 
 app.get('/', function(req, res) {
   res.render('index');
-})
+});
 
 http.listen(3000, function() {
-  console.log('listening on *:3000');
+  console.log('Chat start on *:3000');
 });
 
