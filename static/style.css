@@ -16,6 +16,24 @@ ul#messages {
   background-color: #666666;
 }
 
+#messages li.join {
+  background-color: #337ab7;
+  color: white;
+  text-align: center;
+  padding: 5px;
+}
+
+#messages li.leave {
+  background-color: #337ab7;
+  color: white;
+  text-align: center;
+  padding: 5px;
+}
+
+#messages span.message-header {
+  font-weight: bold;
+}
+
 #users li.current {
   font-weight: bold;
 }
