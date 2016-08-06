@@ -32,11 +32,11 @@ var username;
 var chatroom = io.of('/chatroom');
 chatroom.on('connection', function(socket) {
   userList.add({id: socket.id, name: username});
-  chatroom.emit('refresh users', userList.get());
+  chatroom.emit('refresh users', userList.get(), username);
   socket.broadcast.emit('chat message', username + ' has connected');
   socket.on('disconnect', function() {
     userList.remove(username);
-    chatroom.emit('refresh users', userList.get());
+    chatroom.emit('refresh users', userList.get(), username);
     chatroom.emit('chat message', username + ' has disconnected');
 });
 
@@ -57,6 +57,6 @@ app.get('/', function(req, res) {
 });
 
 http.listen(3000, function() {
-  console.log('Chat start on *:3000');
+  console.log('Chat started on *:3000');
 });
 

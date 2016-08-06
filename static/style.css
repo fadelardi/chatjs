@@ -1,34 +1,56 @@
 body {
+  height: 100%;
   background-color: #444444;
-  color: #F0874F;
+  color: #337ab7;
 }
+
 ul#messages {
-  display: block;
-  float: right;
-  width: 70%;
-  color: red;
-  background-color: gray;
-}
-ul#users {
-  display: block;
-  float: right;
-  width: 30%;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin-bottom: 50px;
 }
 
-#messages { list-style-type: none; margin: 0; padding: 0; }
-#messages li { padding: 5px 10px; }
+#messages li {
+  padding: 2px;
+}
 
-.messageBox {
-  position: absolute;
-  display: block;
-  width: 100%;
+#messages li:nth-child(odd) {
+  background-color: #666666;
+}
+
+#users li.current {
+  font-weight: bold;
+}
+
+#users li.total {
+  text-align: center;
+  font-weight: bold;
+  background-color: #337ab7;
+  color: white;
+  padding: 5px;
+  font-size: 15px;
+}
+
+#users li:hover {
+  color: white;
+  cursor: pointer;
+}
+
+#users li.total:hover {
+  color: #337ab7;
+  cursor: auto;
+}
+
+.message-bar {
+  position: fixed;
   bottom: 0;
-  left: 0;
+  width: 100%;
 }
 
-.messageBox input {
-  width: 100%;
+.users-bar {
+  right: 0;
+  float: ;
+  position: fixed;
+}
+
+.message-list {
+  float: left;
 }

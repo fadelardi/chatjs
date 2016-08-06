@@ -13,14 +13,16 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   socket.on('chat message', function(m) {
-    messages.innerHTML += '<p>' + m + '</p>';
+    messages.innerHTML += '<li>' + m + '</li>';
   });
 
-  socket.on('refresh users', function(users) {
+  socket.on('refresh users', function(users, current) {
+    var userClass = '';
     usersList.innerHTML = '';
+    usersList.innerHTML += '<li class="total">ACTIVE USERS (' + users.length + ')</li>';
     for (var i=0;i<users.length;i++) {
-      usersList.innerHTML += '<li>' + users[i].name + '</li>';
+      userClass = (users[i].name == current) ? 'class="current"' : '';
+      usersList.innerHTML += '<li ' + userClass + '>' + users[i].name + '</li>';
     }
-    usersList.innerHTML += '<li>Total users connected: ' + users.length + '</li>';
   })
 });
