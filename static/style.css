@@ -2,6 +2,7 @@ body {
   height: 100%;
   background-color: #444444;
   color: #337ab7;
+  font-size: 15px;
 }
 
 ul#messages {
@@ -9,7 +10,8 @@ ul#messages {
 }
 
 #messages li {
-  padding: 2px;
+  padding: 5px;
+  font-size: 15px;
 }
 
 #messages li:nth-child(odd) {
@@ -38,6 +40,10 @@ ul#messages {
   font-weight: bold;
 }
 
+#users li:nth-child(odd) {
+  background-color: #666666;
+}
+
 #users li.total {
   text-align: center;
   font-weight: bold;
@@ -49,12 +55,17 @@ ul#messages {
 
 #users li:hover {
   color: white;
+  background-color: #337ab7;
   cursor: pointer;
 }
 
 #users li.total:hover {
   color: #337ab7;
   cursor: auto;
+}
+
+#users li {
+  padding: 5px;
 }
 
 .message-bar {

@@ -5,12 +5,11 @@ html
     link(rel="stylesheet", href="/static/style.css")
   body
     script(src="/socket.io/socket.io.js")
-    div.container-fluid.users-bar
-      ul#users.list-unstyled
-    div.container.message-list
-      div.row
-        div.col-md-12
-          ul#messages.list-unstyled
+    div.container-fluid
+      div.col-md-10
+        ul#messages.list-unstyled
+      div.col-md-2
+        ul#users.list-unstyled
     div.message-bar
       form#messageForm(action="")
         input#messageBox.form-control(name="m", autocomplete="off",placeholder="Type a message", required)
